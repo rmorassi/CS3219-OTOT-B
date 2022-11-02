@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "description": "An app for OTOT task B",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "start": "node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha --exit test.js"
   },
   "keywords": [
     "api",
@@ -16,7 +17,10 @@
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.20.1",
+    "chai": "^4.3.6",
+    "chai-http": "^4.3.0",
     "express": "^4.18.2",
+    "mocha": "^10.1.0",
     "mongoose": "^6.7.0"
   }
 }

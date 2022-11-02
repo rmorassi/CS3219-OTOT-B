@@ -1,16 +1,17 @@
 /* ----- IMPORTS ----- */
 
 // Libraries
-let express = require('express');
-let bodyParser = require('body-parser');
-let mongoose = require('mongoose'); // for database handling
-let app = express();
+import express from 'express';
+import bodyParser from 'body-parser';
+import mongoose from 'mongoose'; // for database handling
 
 // Files
-let apiRoutes = require("./api-routes");    // Used for API routing
+import apiRoutes from './api-routes.js';    // Used for API routing
 
 
 /* ----- CONFIGURATIONS ----- */
+
+const app = express();
 
 // Configure bodyparser to handle post requests
 app.use(bodyParser.urlencoded({
@@ -23,7 +24,7 @@ const uri = "mongodb+srv://admin:admin123@cs3219.qetensm.mongodb.net/taskB?retry
 mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 
 // Select port
-var port = process.env.PORT || 8080;
+const port = 8080;
 
 // API routings
 app.get('/', (req, res) => res.send('Hello World with Express'));
@@ -37,3 +38,8 @@ if (!mongoose.connection) console.log("Error connecting database")
 else console.log("Database connected successfully")
 // Launch app
 app.listen(port, function () { console.log("Running on port " + port); });
+
+
+/* ----- TESTING -----*/
+
+export default app; // to be used in testing

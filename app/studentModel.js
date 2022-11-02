@@ -1,6 +1,6 @@
 /* ----- IMPORTS ----- */
 
-var mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 
 /* ----- SCHEMA SPECIFICATION ----- */
@@ -26,7 +26,4 @@ var StudentModelSchema = mongoose.Schema({
 });
 
 // Export Student model
-var Student = module.exports = mongoose.model('StudentModel', StudentModelSchema);
-module.exports.get = function (callback, limit) {
-    Student.find(callback).limit(limit);
-}
+export default mongoose.model('StudentModel', StudentModelSchema);

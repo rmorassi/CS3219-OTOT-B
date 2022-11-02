@@ -1,30 +1,32 @@
 /* ----- IMPORTS ----- */
 
-let router = require('express').Router();
-var studentController = require('./studentController');
+import express from 'express';
+import {index, create, view, update, remove} from './studentController.js'
 
 
 /* ----- API ROUTES ----- */
 
+const router = express.Router();
+
 // Base route
 router.get('/', function (req, res) {
     res.json({
-        status: 'OK',
+        status: 'success',
         message: 'This is confirmation that the API works properly.',
     });
 });
 
 // Generic studentRooster routes
 router.route('/studentRooster')
-    .get(studentController.index)
-    .post(studentController.new);
+    .get(index)
+    .post(create);
 
 // Specific studentRooster student routes
 router.route('/studentRooster/:student_id')
-    .get(studentController.view)
-    .put(studentController.update)
-    .delete(studentController.delete);
+    .get(view)
+    .put(update)
+    .delete(remove);
 
 
 // Export API routes
-module.exports = router;
+export default router;
