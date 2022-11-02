@@ -20,7 +20,7 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json());
 
 // Connect to Mongoose
-const uri = "mongodb+srv://admin:admin123@cs3219.qetensm.mongodb.net/taskB?retryWrites=true&w=majority";
+const uri = "mongodb+srv://cs3219-user:pass123@cs3219.qetensm.mongodb.net/taskB?retryWrites=true&w=majority";
 mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 
 // Select port
