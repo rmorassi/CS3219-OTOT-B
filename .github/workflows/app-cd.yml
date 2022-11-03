@@ -1,0 +1,43 @@
+name: App CD
+
+on:
+  workflow_run:
+    workflows: [App Testing CI]
+    branches: [main]
+    types:
+      - completed
+
+jobs:
+  deploy:
+    # Only deploy if tests pass
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+
+    runs-on: ubuntu-latest
+
+    # Switch directories
+    defaults:
+      run:
+        working-directory: ./app
+
+    # Add "id-token" with the intended permissions.
+    permissions:
+      contents: 'read'
+      id-token: 'write'
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+
+    # Authentication via credentials json
+    - id: 'auth'
+      uses: 'google-github-actions/auth@v0'
+      with:
+        credentials_json: '${{ secrets.GCP_CREDENTIALS }}'
+
+    # Setup gcloud CLI
+    - name: Set up Cloud SDK
+      uses: google-github-actions/setup-gcloud@v0
+
+    # Deploy to Cloud
+    - name: Deploy to Cloud
+      run: gcloud app deploy

@@ -1,4 +1,4 @@
-name: Node.js CI
+name: App Testing CI
 
 on:
   push:
@@ -11,17 +11,23 @@ jobs:
 
     runs-on: ubuntu-latest
 
+    # Switch directories
+    defaults:
+      run:
+        working-directory: ./app
+
     steps:
     - uses: actions/checkout@v3
-    - name: Switch directory
-      run: cd app
+
     - name: Use Node.js
       uses: actions/setup-node@v3
       with:
         node-version: '16.17.0'
+    
+    # Install dependencies
     - name: Install dependencies
-      run: cd app && npm ci
-    - name: Build app
-      run: cd app && npm run build --if-present
+      run: npm ci
+
+    # Run the tests
     - name: Run tests
-      run: cd app && npm test
+      run: npm test
