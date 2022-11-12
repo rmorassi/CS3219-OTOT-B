@@ -2,6 +2,7 @@
 
 import express from 'express';
 import {index, create, view, update, remove} from './studentController.js'
+import {temp} from './serverlessFunction.js'
 
 
 /* ----- API ROUTES ----- */
@@ -27,6 +28,9 @@ router.route('/studentRooster/:student_id')
     .put(update)
     .delete(remove);
 
+// Serverless routes
+router.route('/tempAvg')
+    .get(temp)
 
 // Export API routes
 export default router;
