@@ -4,6 +4,7 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import mongoose from 'mongoose'; // for database handling
+import cors from 'cors';
 
 // Files
 import apiRoutes from './api-routes.js';    // Used for API routing
@@ -12,6 +13,10 @@ import apiRoutes from './api-routes.js';    // Used for API routing
 /* ----- CONFIGURATIONS ----- */
 
 const app = express();
+
+// Allow to be called externally
+app.use(cors({ origin: true, credentials: true }))
+app.options('*', cors())
 
 // Configure bodyparser to handle post requests
 app.use(bodyParser.urlencoded({
