@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-var link = "http://localhost:8080";
+var link = "https://otottaskb-367404.as.r.appspot.com";
 var apiLink = "/api/tempAvg";
 
 class ServerlessInteraction extends Component {
