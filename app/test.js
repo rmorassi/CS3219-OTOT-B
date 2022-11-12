@@ -53,7 +53,7 @@ describe("API services", () => {
                     done();
                 });
         });
-        
+
     });
     describe("POST /api/studentRooster", () => {
         // [VALID] Student records created as intended
@@ -91,7 +91,7 @@ describe("API services", () => {
                     done();
                 });
         });
-        
+
     });
     describe("GET /api/studentRooster/\'studentID\'", () => {
         // [VALID] Student record fetched as intended
@@ -119,7 +119,7 @@ describe("API services", () => {
                     done();
                 });
         });
-        
+
     });
     describe("PUT /api/studentRooster/\'studentID\'", () => {
         // [VALID] Student record updated as intended
@@ -154,7 +154,7 @@ describe("API services", () => {
                     done();
                 });
         });
-        
+
     });
     describe("DELETE /api/studentRooster/\'studentID\'", () => {
         // [VALID] Student records deleted as intended

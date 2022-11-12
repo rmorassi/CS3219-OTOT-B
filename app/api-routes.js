@@ -1,8 +1,8 @@
 /* ----- IMPORTS ----- */
 
 import express from 'express';
-import {index, create, view, update, remove} from './studentController.js'
-import {temp} from './serverlessFunction.js'
+import { index, create, view, update, remove } from './studentController.js'
+import { temp } from './serverlessFunction.js'
 
 
 /* ----- API ROUTES ----- */

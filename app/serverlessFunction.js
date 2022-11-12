@@ -10,13 +10,13 @@ export async function temp(req, res) {
         const tempData = response.data
         const data = tempData.items[0].readings;
         var sum = 0;
-        data.forEach(function(reading) { sum += reading.value });
+        data.forEach(function (reading) { sum += reading.value });
         const average = sum / data.length;
         return res.json({
             dataPoints: data.length,
             avg: average
         });
     } catch (err) {
-        return res.json({status: 'error caught', message: err})
+        return res.json({ status: 'error caught', message: err })
     }
 }

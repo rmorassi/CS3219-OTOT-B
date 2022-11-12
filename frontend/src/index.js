@@ -9,7 +9,7 @@ var destination = document.querySelector("#container")
 ReactDOM.render(
     <div>
         <ApiInteraction />
-        <hr/>
+        <hr />
         <ServerlessInteraction />
     </div>,
     destination

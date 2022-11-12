@@ -13,14 +13,14 @@ export async function index(req, res) {
             data: await Student.find()
         });
     } catch (err) {
-        return res.json({status: 'error', message: err})
+        return res.json({ status: 'error', message: err })
     }
 }
 
 // Handle create student actions
 export async function create(req, res) {
     try {
-        const {name, house, roomNumber, gender} = req.body;
+        const { name, house, roomNumber, gender } = req.body;
         if (!name || !house || !roomNumber) {
             return res.json({
                 status: 'not success',
@@ -46,7 +46,7 @@ export async function create(req, res) {
                 message: 'Cannot create student record. Fields were not of correct type.'
             });
         }
-        return res.json({status: 'error', message: err})
+        return res.json({ status: 'error', message: err })
     }
 }
 
@@ -66,7 +66,7 @@ export async function view(req, res) {
             data: student
         });
     } catch (err) {
-        return res.json({status: 'error', message: err})
+        return res.json({ status: 'error', message: err })
     }
 }
 
@@ -97,14 +97,14 @@ export async function update(req, res) {
                 message: 'Cannot modify. Fields were not of correct type.'
             });
         }
-        return res.json({status: 'error', message: err})
+        return res.json({ status: 'error', message: err })
     }
 }
 
 // Handle delete student
 export async function remove(req, res) {
     try {
-        const student = await Student.findOneAndRemove({_id: req.params.student_id});
+        const student = await Student.findOneAndRemove({ _id: req.params.student_id });
         if (!student) {
             return res.json({
                 status: 'not success',
@@ -117,6 +117,6 @@ export async function remove(req, res) {
             data: student
         });
     } catch (err) {
-        return res.json({status: 'error', message: err})
+        return res.json({ status: 'error', message: err })
     }
 }

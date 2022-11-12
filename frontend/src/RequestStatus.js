@@ -6,7 +6,7 @@ class RequestStatus extends Component {
     }
 
     render() {
-        var {status, message, data} = this.props.response;
+        var { status, message, data } = this.props.response;
 
         status = (status) ? status : "No status yet";
         message = (message) ? message : "No message yet.";

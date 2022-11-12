@@ -7,7 +7,7 @@ class ServerlessInteraction extends Component {
     constructor(props) {
         super(props);
 
-        this.state = {dataPoints: null, avg: null};
+        this.state = { dataPoints: null, avg: null };
 
         this.processRequest = this.processRequest.bind(this);
     }
@@ -20,23 +20,23 @@ class ServerlessInteraction extends Component {
         fetch(link + apiLink + "?date_time=" + date, {
             method: "GET"
         })
-        .then((response) => response.json())
-        .then((data) => {
-            console.log(data);
-            this.setState({dataPoints: JSON.stringify(data.dataPoints), avg: data.avg.toFixed(2)});
-        })
-        .catch((err) => {
-            console.log(err);
-        });
+            .then((response) => response.json())
+            .then((data) => {
+                console.log(data);
+                this.setState({ dataPoints: JSON.stringify(data.dataPoints), avg: data.avg.toFixed(2) });
+            })
+            .catch((err) => {
+                console.log(err);
+            });
 
         e.preventDefault(); // Prevent page reload
     }
 
     render() {
-        var {dataPoints, avg} = this.state;
+        var { dataPoints, avg } = this.state;
 
         dataPoints = (dataPoints) ? dataPoints : "";
-        avg = (avg) ? avg + "°C": "";
+        avg = (avg) ? avg + "°C" : "";
 
         return (
             <div className="serverlessInteractionMain">

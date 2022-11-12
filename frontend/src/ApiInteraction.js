@@ -8,32 +8,30 @@ class ApiInteraction extends Component {
     constructor(props) {
         super(props);
 
-        this.state = {status: null, message: null, data: null};
+        this.state = { status: null, message: null, data: null };
 
         this.processRequest = this.processRequest.bind(this);
     }
     processRequest(e) {
-        var res;
-
         // See all students
         if (this._requestType.value == "a") {
             fetch(link + apiLink, {
                 method: "GET"
             })
-            .then((response) => response.json())
-            .then((data) => {
-                console.log(data);
-                this.setState({status: JSON.stringify(data.status), message: JSON.stringify(data.message), data: JSON.stringify(data.data)});
-            })
-            .catch((err) => {
-                console.log(err);
-            });
+                .then((response) => response.json())
+                .then((data) => {
+                    console.log(data);
+                    this.setState({ status: JSON.stringify(data.status), message: JSON.stringify(data.message), data: JSON.stringify(data.data) });
+                })
+                .catch((err) => {
+                    console.log(err);
+                });
         }
         // Add a student
         else if (this._requestType.value == "b") {
             let body = {
                 name: this._name.value,
-                house: this._house.value, 
+                house: this._house.value,
                 roomNumber: parseInt(this._roomNumber.value),
                 gender: this._gender.value
             }
@@ -42,34 +40,34 @@ class ApiInteraction extends Component {
                 method: "POST",
                 body: JSON.stringify(body)
             })
-            .then((response) => response.json())
-            .then((data) => {
-                console.log(data);
-                this.setState({status: JSON.stringify(data.status), message: JSON.stringify(data.message), data: JSON.stringify(data.data)});
-            })
-            .catch((err) => {
-                console.log(err);
-            });
+                .then((response) => response.json())
+                .then((data) => {
+                    console.log(data);
+                    this.setState({ status: JSON.stringify(data.status), message: JSON.stringify(data.message), data: JSON.stringify(data.data) });
+                })
+                .catch((err) => {
+                    console.log(err);
+                });
         }
         // See specific student
         else if (this._requestType.value == "c") {
             fetch(link + apiLink + "/" + this._id.value, {
                 method: "GET"
             })
-            .then((response) => response.json())
-            .then((data) => {
-                console.log(data);
-                this.setState({status: JSON.stringify(data.status), message: JSON.stringify(data.message), data: JSON.stringify(data.data)});
-            })
-            .catch((err) => {
-                console.log(err);
-            });
+                .then((response) => response.json())
+                .then((data) => {
+                    console.log(data);
+                    this.setState({ status: JSON.stringify(data.status), message: JSON.stringify(data.message), data: JSON.stringify(data.data) });
+                })
+                .catch((err) => {
+                    console.log(err);
+                });
         }
         // Edit student
         else if (this._requestType.value == "d") {
             let body = {
                 name: this._name.value,
-                house: this._house.value, 
+                house: this._house.value,
                 roomNumber: parseInt(this._roomNumber.value),
                 gender: this._gender.value
             }
@@ -78,28 +76,28 @@ class ApiInteraction extends Component {
                 method: "PUT",
                 body: { name: this._name.value, house: this._house.value, roomNumber: this._roomNumber.value, gender: this._gender.value }
             })
-            .then((response) => response.json())
-            .then((data) => {
-                console.log(data);
-                this.setState({status: JSON.stringify(data.status), message: JSON.stringify(data.message), data: JSON.stringify(data.data)});
-            })
-            .catch((err) => {
-                console.log(err);
-            });
+                .then((response) => response.json())
+                .then((data) => {
+                    console.log(data);
+                    this.setState({ status: JSON.stringify(data.status), message: JSON.stringify(data.message), data: JSON.stringify(data.data) });
+                })
+                .catch((err) => {
+                    console.log(err);
+                });
         }
         // Delete student
         else if (this._requestType.value == "e") {
             fetch(link + apiLink + "/" + this._id.value, {
                 method: "DELETE"
             })
-            .then((response) => response.json())
-            .then((data) => {
-                console.log(data);
-                this.setState({status: JSON.stringify(data.status), message: JSON.stringify(data.message), data: JSON.stringify(data.data)});
-            })
-            .catch((err) => {
-                console.log(err);
-            });
+                .then((response) => response.json())
+                .then((data) => {
+                    console.log(data);
+                    this.setState({ status: JSON.stringify(data.status), message: JSON.stringify(data.message), data: JSON.stringify(data.data) });
+                })
+                .catch((err) => {
+                    console.log(err);
+                });
         }
 
         e.preventDefault(); // Prevent page reload
