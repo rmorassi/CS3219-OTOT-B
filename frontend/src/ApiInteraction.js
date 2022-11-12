@@ -142,6 +142,7 @@ class ApiInteraction extends Component {
                         </div>
                         <button class="btn btn-primary" type="submit">Process Request</button>
                         <br></br>
+                        <br></br>
                     </form>
                 </div>
                 <div>

@@ -13,13 +13,11 @@ class RequestStatus extends Component {
         data = (data) ? data : "No data present.";
 
         return (
-            <pre>
-                <div class="container text-left">
-                    <p>Status: {status}</p>
-                    <p>Message: {message}</p>
-                    <p>Data: {data}</p>
-                </div>
-            </pre>
+            <ul class="list-group">
+                <li class="list-group-item">Status: {status}</li>
+                <li class="list-group-item">Message: {message}</li>
+                <li class="list-group-item">Data: {data}</li>
+            </ul>
         );
     }
 };
